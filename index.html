@@ -35,7 +35,7 @@
 
                 const text = await response.text();
 
-                statusDisplay.innerText = `Status: ${response.status}\nResponse: ${text}`;
+                statusDisplay.innerText = `Status: ${response.status}\nResponse: ${JSON.stringify(text, null, 2)}`;
             } catch (error) {
                 statusDisplay.innerText = "Error: " + error.message;
             }
