@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <h2>n8n Webhook Tester</h2>
+
+    <label for="webhookUrl" style="margin-bottom: 20px; display: inline-block;">Webhook URL:</label><br>
+    <input type="text" id="webhookUrl" placeholder="Enter webhook URL here" size="60"><br><br>
+
+    <button onclick="sendTest()">Send Test POST</button>
+
+    <p id="response">Enter a webhook URL and click the button...</p>
+
+    <script>
+        async function sendTest() {
+            const webhookUrl = document.getElementById('webhookUrl').value;
+            const statusDisplay = document.getElementById('response');
+
+            if (!webhookUrl) {
+                statusDisplay.innerText = "Please enter a webhook URL.";
+                return;
+            }
+
+            statusDisplay.innerText = "Sending...";
+
+            try {
+                const response = await fetch(webhookUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        name: "Test User",
+                        email: "test@example.com",
+                        message: "Testing from my local machine"
+                    })
+                });
+
+                const text = await response.text();
+
+                statusDisplay.innerText = `Status: ${response.status}\nResponse: ${text}`;
+            } catch (error) {
+                statusDisplay.innerText = "Error: " + error.message;
+            }
+        }
+    </script>
+</body>
+</html>
