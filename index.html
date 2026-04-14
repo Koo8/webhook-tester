@@ -71,18 +71,20 @@
     .logo {
       width: 42px;
       height: 42px;
-      border-radius: 10px;
-      background: linear-gradient(135deg, var(--primary), var(--accent));
       display: flex;
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
     }
-    .logo svg {
-      width: 22px;
-      height: 22px;
-      fill: white;
+    .logo_small {
+      width: 18px;
+      height: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
     }
+  
     .card-header h1 {
       font-family: var(--ff-display);
       font-size: 1.25rem;
@@ -352,10 +354,15 @@
       font-size: 12.5px;
       color: var(--ink-faint);
       line-height: 1.5;
+       display: flex;
+      flex-wrap: wrap;
+      align-items: center;
     }
     .footer-left strong {
       color: var(--gray-900);
       font-weight: 500;
+     
+     
     }
     .footer-link {
       display: inline-flex;
@@ -388,9 +395,7 @@
     <div class="card">
       <div class="card-header">
         <div class="logo">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
-          </svg>
+          <img src="/logo.svg" alt="Logo" class="logo" />
         </div>
         <div>
           <h1>Webhook Tester</h1>
@@ -490,7 +495,7 @@
     </div>
     <div class="footer">
       <p class="footer-left">
-        Built by <strong>Sailing Digital</strong> — free tool for testing
+        Built by <img src="/logo.svg" alt="Sailing Digital Online" class="logo_small" /> <strong> Sailing Digital Online </strong>  — free tool for testing
         webhooks &amp; automations.
       </p>
       <a
@@ -499,7 +504,7 @@
         target="_blank"
         rel="noopener"
       >
-        sailing.online
+        sailingdigital.online
         <svg
           viewBox="0 0 12 12"
           fill="none"
